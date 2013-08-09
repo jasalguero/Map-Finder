@@ -1,0 +1,35 @@
+<div>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <div class="brand">
+          Map Locator for WayMate :)
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid" id="main">
+    <div class="row-fluid">
+      <div>
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <span class="nav-header"><h3>MENU</h3></span>
+            <ul class="nav nav-list">
+              <li>
+                  <strong>Create new Marker</strong>
+                  <br/>
+                  <input type="text" id="marker_location" placeholder="search for something...">
+                  <br/>
+                  <input type="button" value="Find" {{action "addMarker" on="click"}}/>
+              </li>
+              <li><strong>Browser other Markers</strong></li>
+            </ul>
+          </div>
+        </div>
+        <div class="span9">
+          {{outlet}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
