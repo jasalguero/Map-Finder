@@ -7,6 +7,10 @@ MapFinder.ApplicationController = Ember.ObjectController.extend(
 	###
 	
 	addMarker: ->
-		this.get('controllers.map').doGeocode($('#marker_location').val())
-		$('#marker_location').val('')
+		input = $('#marker_location')
+		if !Ember.isEmpty input.val()
+			this.get('controllers.map').doGeocode($('#marker_location').val())
+			$('#marker_location').val('')
+		else
+			MapFinder.showError("I need something, anything to search!")
 )

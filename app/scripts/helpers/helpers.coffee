@@ -5,29 +5,29 @@
 	@author Slavik Meltser (slavik@meltser.info).
 	@link http://slavik.meltser.info/?p=142
 ###
-MapFinder.GuidHelper= ->
+MapFinder.createGUID = ->
   _p8 = (s) ->
     p = (Math.random().toString(16) + "000000000").substr(2, 8)
     (if s then "-" + p.substr(0, 4) + "-" + p.substr(4, 4) else p)
   _p8() + _p8(true) + _p8(true) + _p8()
 
-MapFinder.ShowError= ->
-	MapFinder.ToggleMsg($('#errorMsg'))
+MapFinder.showError = (msg) ->
+	MapFinder.toggleMsg($('#errorMsg'), msg)
 
-MapFinder.ShowSuccess= ->
-	MapFinder.ToggleMsg($('#successMsg'))
+MapFinder.ShowSuccess = (msg) ->
+	MapFinder.toggleMsg($('#successMsg'), msg)
 
 # Show some of the notification messages and set a timeout for its fading
-MapFinder.ToggleMsg = (message) ->
-	message.fadeIn(600, ->
+MapFinder.toggleMsg = (elem, msg) ->
+	elem.children('span').text(msg)
+	elem.fadeIn(600, ->
 		setTimeout(->
-			message.fadeOut(600)
-		,2000)
+			elem.fadeOut(600)
+		,1500)
 	)
 
 # Retrieve photos from Panoramio based on a marker's position, there's no error handling because of the jsonp technique
-MapFinder.GetPhotosByLocation = (marker) ->
-	debugger
+MapFinder.getPhotosByLocation = (marker) ->
 	$.ajax( MapFinder.CONSTANTS.PANORAMIO_URL,
 		type: 'GET'
 		crossDomain: true
@@ -44,7 +44,6 @@ MapFinder.GetPhotosByLocation = (marker) ->
 			maxx: marker.lng + 0.005
 			maxy: marker.lat + 0.005
 	).then( (data) ->
-		console.log data
 		results = []
 		data.photos?.forEach( (photo) ->
 			data = 
@@ -55,23 +54,7 @@ MapFinder.GetPhotosByLocation = (marker) ->
 		results
 	)
 
-# Shows a clean modal
-MapFinder.ShowModal = ->
-	$('#carousel-items').html('')
-	$('#myModal').modal()
-
-MapFinder.AddPhotosToModal = (photos) ->
-	if (Ember.isArray photos)  && !(Ember.isEmpty photos)
-		carousel = $('#carousel-items')
-		photos.forEach( (photo) ->
-			console.log(photo)
-			item = $("<div class='item'><img src=" + photo.url + " alt=''><div class='carousel-caption'><h4>" + photo.title + "</h4></div>");
-			carousel.prepend(item)
-		)
-
-		#reactivate the carousel plugin
-		$('.carousel').carousel()
-
+# move map slider forward or backwards
 MapFinder.moveSlide = (direction) ->
 	$slideshow = $(".slideshow")
 	totalSlides = $slideshow.children().length

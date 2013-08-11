@@ -2,10 +2,14 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Yeoman Ember Starter Kit</title>
+        <title>Map Finder</title>
 
         <!-- build:css styles/main.css -->
         <link rel="stylesheet" href="styles/style.css">
+        <link href='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css' rel='stylesheet' />
+          <!--[if lte IE 8]>
+            <link href='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.ie.css' rel='stylesheet' />
+          <![endif]-->
         <!-- endbuild -->
 </head>
     <body>
@@ -27,27 +31,12 @@
 
         <!-- build:js scripts/plugins.js -->
         <script src="bower_components/bootstrap-sass/js/bootstrap-affix.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-alert.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-dropdown.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-tooltip.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-modal.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-transition.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-button.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-popover.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-typeahead.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-carousel.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-scrollspy.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-collapse.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-tab.js"></script>
         <!-- endbuild -->
 
-        <link href='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css' rel='stylesheet' />
-          <!--[if lte IE 8]>
-            <link href='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.ie.css' rel='stylesheet' />
-          <![endif]-->
-        <script src='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js'></script>
+        <script src="http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js"></script>
         <script type="text/javascript"
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAllvcL7Taop-JvcIooF-kV5OwHQDdlgAg&sensor=false">
         </script>
+        
     </body>
 </html>

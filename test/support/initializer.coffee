@@ -5,12 +5,12 @@ should = chai.should()
 chai.Assertion.includeStack = true
 
 Ember.testing = true
-App.rootElement = "#ember-testing"
+MapFinder.rootElement = "body"
 Ember.Test.adapter = Ember.Test.MochaAdapter.create()
 
-App.setupForTesting()
-App.injectTestHelpers()
-Ember.run(App, App.advanceReadiness)
+MapFinder.setupForTesting()
+MapFinder.injectTestHelpers()
+Ember.run(MapFinder, MapFinder.advanceReadiness)
 
 window.start = ->
 window.stop = ->

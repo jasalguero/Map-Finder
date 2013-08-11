@@ -22,19 +22,19 @@ MapFinder.MapController = Ember.ObjectController.extend(
 
 			@mapGeocoder.geocode(address: location, (data) =>
 					if data?
-						MapFinder.ShowSuccess()
+						MapFinder.ShowSuccess('Found something, click on it to see some pics!')
 
 						marker = @createMarkerFromResponse(data)
 
 						@focusMap(marker)
 
-						MapFinder.GetPhotosByLocation(marker).done( (photos) =>
+						MapFinder.getPhotosByLocation(marker).done( (photos) =>
 							@addPinToMap(marker, photos)		
 						)
 				)
 		#nothing can be done, just notify the user
 		else
-			MapFinder.ShowError()
+			MapFinder.showError('Oops, something went wrong trying to find the place')
 
 
 	###
@@ -53,7 +53,7 @@ MapFinder.MapController = Ember.ObjectController.extend(
 		latlong = response[0]?.geometry?.location
 
 		marker = MapFinder.Marker.create(
-			id: MapFinder.GuidHelper()
+			id: MapFinder.createGUID()
 			lat: latlong.lb
 			lng: latlong.mb
 		)
@@ -103,10 +103,6 @@ MapFinder.MapController = Ember.ObjectController.extend(
 			closeButton: false
 			minWidth: 320
 
-
-	handlePinClicked: (e) ->
-		#MapFinder.ShowModal()
-		#MapFinder.GetPhotosByLocation().done( MapFinder.AddPhotosToModal)
 
 	#Center the markers location
 	focusMap: (marker) ->

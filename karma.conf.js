@@ -10,11 +10,13 @@ basePath = '';
 files = [
   MOCHA,
   MOCHA_ADAPTER,
+  
   'app/bower_components/jquery/jquery.min.js',
   'app/bower_components/handlebars/handlebars.runtime.js',
   'app/bower_components/ember/ember.js',
   'app/bower_components/ember-data-shim/ember-data.js',
   'test/lib/chai.js',
+  'test/lib/require.js',
   'app/bower_components/ember-mocha-adapter/adapter.js',
   '.tmp/scripts/combined-scripts.js',
   '.tmp/scripts/compiled-templates.js',

@@ -1,12 +1,13 @@
+###require([''])###
 describe "Index page", ->
-  it "displays a welcome message", ->
+  it "displays the header", ->
     visit('/').then ->
-      find('h2').text().should.equal 'Welcome to Ember.js'
+      find('h4').text().should.equal 'Map Locator for folks at WayMate'
 
-describe "IndexRoute", ->
+###describe "MapRoute", ->
   describe "model property", ->
-    indexRoute = App.IndexRoute.create()
+    indexRoute = MapFinder.MapRoute.create()
 
     it "should have the right number of items", ->
       model = indexRoute.model()
-      model.should.have.length 3
+      model.should.have.length 3###
