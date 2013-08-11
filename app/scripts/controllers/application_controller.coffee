@@ -1,4 +1,4 @@
-#Global controller for the application, handling stuff like notifications, main form submission
+#Global controller for the application handling the main form submission
 MapFinder.ApplicationController = Ember.ObjectController.extend(
 	needs: ['map']
 
@@ -9,12 +9,4 @@ MapFinder.ApplicationController = Ember.ObjectController.extend(
 	addMarker: ->
 		this.get('controllers.map').doGeocode($('#marker_location').val())
 		$('#marker_location').val('')
-
-	showError: ->
-		alert("error!")
-
-	showSuccess: ->
-		message = $('#successMsg')
-
-		MapFinder.ToggleMsg(message)
 )
