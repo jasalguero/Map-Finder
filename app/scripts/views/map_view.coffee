@@ -1,5 +1,7 @@
+#View for the map, call for the map initialisation when the elements are painted
 MapFinder.MapView = Ember.View.extend(
   templateName: 'map'
+
   didInsertElement: ->
-  	this.set('controller.mapContainer',L.mapbox.map('map', MapFinder.CONSTANTS.MAP_ID).setView([37.9, -77], 9))
+  	@get('controller').initialiseMap()
 )
