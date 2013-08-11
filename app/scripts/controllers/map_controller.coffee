@@ -11,7 +11,7 @@ MapFinder.MapController = Ember.ObjectController.extend(
 	###
 	init: ->
 		@_super()
-		@set 'mapGeocoder', new google.maps.Geocoder()
+		@set 'mapGeocoder', new google?.maps?.Geocoder()
 
 	###
 		FUNCTIONS THAT DO THE REAL STUFF
