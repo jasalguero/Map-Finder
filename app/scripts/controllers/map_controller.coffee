@@ -1,5 +1,5 @@
 #Controller that handles everything related to the map
-MapFinder.MapController = Ember.ObjectController.extend(
+MapFinder.MapController = Ember.ArrayController.extend(
 	###
 		VARIABLES
 	###
@@ -24,13 +24,15 @@ MapFinder.MapController = Ember.ObjectController.extend(
 					if data?
 						MapFinder.ShowSuccess('Found something, click on it to see some pics!')
 
-						marker = @createMarkerFromResponse(data)
+						marker = @createMarkerFromResponse(data, location)
 
 						@focusMap(marker)
 
 						MapFinder.getPhotosByLocation(marker).done( (photos) =>
 							@addPinToMap(marker, photos)		
-						)
+						).done(@addObject(marker))
+
+						
 				)
 		#nothing can be done, just notify the user
 		else
@@ -47,7 +49,7 @@ MapFinder.MapController = Ember.ObjectController.extend(
 		@createPinPopup()
 
 	#Create a marker from the Google Maps response
-	createMarkerFromResponse: (response) ->
+	createMarkerFromResponse: (response, location) ->
 		#just care for the first result returned
 		latlong = response[0]?.geometry?.location
 
@@ -55,6 +57,7 @@ MapFinder.MapController = Ember.ObjectController.extend(
 			id: MapFinder.createGUID()
 			lat: latlong.lb
 			lng: latlong.mb
+			location: location
 		)
 
 	#Add a marker to the existing map

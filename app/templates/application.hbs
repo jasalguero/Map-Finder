@@ -31,12 +31,15 @@
                   <form id="createMarkerForm">
                     <input type="text" id="marker_location" placeholder="search for something..." {{action "addMarker" on="onSubmit"}}>
                     <br/>
-                    <input id="submitMarker" type="submit" value="Find" {{action "addMarker" on="click"}}/>
+                    <input id="submitMarker" type="submit" value="Find" {{action "addMarker"}}/>
                   </form>
               </li>
               <li>
                   <strong>Previous Markers</strong>
                   <ul>
+                    {{#each controllers.map}}
+                        <li><a style="cursor:pointer" {{action centerMarker this}}>{{location}}} <i class="icon-globe"></i></a></li>
+                    {{/each}}
                   </ul>
 
               </li>

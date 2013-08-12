@@ -9,8 +9,11 @@ MapFinder.ApplicationController = Ember.ObjectController.extend(
 	addMarker: ->
 		input = $('#marker_location')
 		if !Ember.isEmpty input.val()
-			this.get('controllers.map').doGeocode($('#marker_location').val())
+			@get('controllers.map').doGeocode($('#marker_location').val())
 			$('#marker_location').val('')
 		else
 			MapFinder.showError("I need something, anything to search!")
+
+	centerMarker: (marker) ->
+		@get('controllers.map').focusMap(marker)
 )

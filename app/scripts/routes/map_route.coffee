@@ -1,1 +1,2 @@
-MapFinder.MapRouter = Ember.Route.extend
+MapFinder.MapRouter = Ember.Route.extend(
+)
