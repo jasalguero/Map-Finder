@@ -74,6 +74,7 @@ MapFinder.MapController = Ember.ObjectController.extend(
 				coordinates: [marker.get('lng'), marker.get('lat')]
 			},
 			properties: {
+				'title': 'Photos'
 				'marker-size': 'large'
 				'marker-color': '#E70707'
 				'images': photos.map (photo) -> [photo.url, photo.title]
