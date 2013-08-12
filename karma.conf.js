@@ -10,18 +10,18 @@ basePath = '';
 files = [
   MOCHA,
   MOCHA_ADAPTER,
-  
   'app/bower_components/jquery/jquery.min.js',
   'app/bower_components/handlebars/handlebars.runtime.js',
   'app/bower_components/ember/ember.js',
   'app/bower_components/ember-data-shim/ember-data.js',
   'test/lib/chai.js',
-  'test/lib/require.js',
   'app/bower_components/ember-mocha-adapter/adapter.js',
   '.tmp/scripts/combined-scripts.js',
   '.tmp/scripts/compiled-templates.js',
+  'http://api.tiles.mapbox.com/mapbox.js/v1.3.0/mapbox.js',
+  'https://maps.googleapis.com/maps/api/js?key=AIzaSyAllvcL7Taop-JvcIooF-kV5OwHQDdlgAg&sensor=false',
   'test/support/*.coffee',
-  'test/integration/*.coffee'
+  'test/integration/*.coffee'  
 ];
 
 
