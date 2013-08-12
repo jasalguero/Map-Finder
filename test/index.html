@@ -11,7 +11,11 @@
     <script>mocha.setup('bdd')</script>
     <!-- assertion framework -->
     <script src="lib/chai.js"></script>
-    <script>var expect = chai.expect</script>
+    <script>
+        var expect = chai.expect;
+        var assert = chai.assert;
+        var should = chai.should();
+    </script>
 
     <!-- include source files here... -->
 
