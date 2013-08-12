@@ -11,7 +11,7 @@ MapFinder.MapController = Ember.ObjectController.extend(
 	###
 	init: ->
 		@_super()
-		@set 'mapGeocoder', new google?.maps?.Geocoder()
+		@set 'mapGeocoder', new google.maps.Geocoder()
 
 	###
 		FUNCTIONS THAT DO THE REAL STUFF
@@ -44,7 +44,6 @@ MapFinder.MapController = Ember.ObjectController.extend(
 	initialiseMap: ->
 		@set('mapContainer',L.mapbox.map('map', MapFinder.CONSTANTS.MAPBOX_ID)
 			.setView([MapFinder.CONSTANTS.MAP_INIT.LAT, MapFinder.CONSTANTS.MAP_INIT.LNG], 14))
-		@mapContainer.markerLayer.on 'click', @handlePinClicked
 		@createPinPopup()
 
 	#Create a marker from the Google Maps response
@@ -100,9 +99,8 @@ MapFinder.MapController = Ember.ObjectController.extend(
 
 			# http://leafletjs.com/reference.html#popup
 			marker.bindPopup popupContent,
-			closeButton: false
-			minWidth: 320
-
+				closeButton: false
+				minWidth: 320
 
 	#Center the markers location
 	focusMap: (marker) ->
