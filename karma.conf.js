@@ -18,7 +18,9 @@ files = [
   'app/bower_components/ember-mocha-adapter/adapter.js',
   '.tmp/scripts/combined-scripts.js',
   '.tmp/scripts/compiled-templates.js',
-  'http://api.tiles.mapbox.com/mapbox.js/v1.3.0/mapbox.js',
+  '.tmp/styles/style.css',
+  'http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css',
+  'http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js',
   'https://maps.googleapis.com/maps/api/js?key=AIzaSyAllvcL7Taop-JvcIooF-kV5OwHQDdlgAg&sensor=false',
   'test/support/*.coffee',
   'test/integration/*.coffee'  

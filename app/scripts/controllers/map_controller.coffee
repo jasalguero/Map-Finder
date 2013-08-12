@@ -42,8 +42,8 @@ MapFinder.MapController = Ember.ObjectController.extend(
 	###
 
 	initialiseMap: ->
-		@set('mapContainer',L.mapbox.map('map', MapFinder.CONSTANTS.MAPBOX_ID)
-			.setView([MapFinder.CONSTANTS.MAP_INIT.LAT, MapFinder.CONSTANTS.MAP_INIT.LNG], 14))
+		@set 'mapContainer', L.mapbox.map('map', MapFinder.CONSTANTS.MAPBOX_ID)
+		@get('mapContainer').setView([MapFinder.CONSTANTS.MAP_INIT.LAT, MapFinder.CONSTANTS.MAP_INIT.LNG], 14)
 		@createPinPopup()
 
 	#Create a marker from the Google Maps response

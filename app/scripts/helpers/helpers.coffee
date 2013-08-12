@@ -64,6 +64,6 @@ MapFinder.moveSlide = (direction) ->
 	else
 		$newSlide = $slideshow.find(".active").next()
 		$newSlide = $(".image").first()  if $newSlide.index() < 0
-		$slideshow.find(".active").removeClass("active").hide()
-		$newSlide.addClass("active").show()
+	$slideshow.find(".active").removeClass("active").hide()
+	$newSlide.addClass("active").show()
 	false

@@ -28,13 +28,18 @@
               <li>
                   <strong>Create new Marker</strong>
                   <br/>
-                  <form>
+                  <form id="createMarkerForm">
                     <input type="text" id="marker_location" placeholder="search for something..." {{action "addMarker" on="onSubmit"}}>
                     <br/>
-                    <input type="submit" value="Find" {{action "addMarker" on="click"}}/>
+                    <input id="submitMarker" type="submit" value="Find" {{action "addMarker" on="click"}}/>
                   </form>
               </li>
-              <li><strong>Browser other Markers</strong></li>
+              <li>
+                  <strong>Previous Markers</strong>
+                  <ul>
+                  </ul>
+
+              </li>
             </ul>
           </div>
         </div>
