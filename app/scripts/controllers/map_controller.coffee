@@ -23,7 +23,6 @@ MapFinder.MapController = Ember.ArrayController.extend(
 			@mapGeocoder.geocode(address: location, (data) =>
 					if data?
 						MapFinder.ShowSuccess('Found something, click on it to see some pics!')
-
 						marker = @createMarkerFromResponse(data, location)
 
 						@focusMap(marker)
@@ -55,8 +54,8 @@ MapFinder.MapController = Ember.ArrayController.extend(
 
 		marker = MapFinder.Marker.create(
 			id: MapFinder.createGUID()
-			lat: latlong.lb
-			lng: latlong.mb
+			lat: latlong.mb
+			lng: latlong.nb
 			location: location
 		)
 
