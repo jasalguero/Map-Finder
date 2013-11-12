@@ -28,10 +28,10 @@ MapFinder.MapController = Ember.ArrayController.extend(
 						@focusMap(marker)
 
 						MapFinder.getPhotosByLocation(marker).done( (photos) =>
-							@addPinToMap(marker, photos)		
+							@addPinToMap(marker, photos)
 						).done(@addObject(marker))
 
-						
+
 				)
 		#nothing can be done, just notify the user
 		else
@@ -54,8 +54,8 @@ MapFinder.MapController = Ember.ArrayController.extend(
 
 		marker = MapFinder.Marker.create(
 			id: MapFinder.createGUID()
-			lat: latlong.mb
-			lng: latlong.nb
+			lat: latlong.lat()
+			lng: latlong.lng()
 			location: location
 		)
 
@@ -63,11 +63,11 @@ MapFinder.MapController = Ember.ArrayController.extend(
 	addPinToMap: (marker, photos) ->
 		if @mapContainer?
 			geoJSON = @mapContainer.markerLayer.getGeoJSON()
-			geoJSON.features.push(   
+			geoJSON.features.push(
 			    @createPin marker, photos
 			)
 			@mapContainer.markerLayer.setGeoJSON(geoJSON)
-			
+
 	createPin: (marker, photos) ->
 		{
 			type: 'Feature'
